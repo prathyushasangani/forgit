@@ -1,0 +1,35 @@
+
+        .head{
+            width: 100%;
+            height: 3.5rem;
+            background-color: hsl(58, 70%, 51%);
+            padding: auto;
+        }
+        .navbar{
+            width: 12;
+            height: 3.5rem;
+            background-color: hsl(168, 87%, 18%);
+        }
+        .items{
+            display: flex;
+            padding: 5;
+            justify-content: space-evenly;
+            /* list-style: none; */
+            padding: 0;
+            
+        }
+        .item a{
+            text-decoration: none;
+            color: white;
+        }
+        .item{
+            list-style: none;
+            padding: 0;
+
+        }
+        .item a:hover{
+            color: hsl(70, 63%, 51%);
+        }
+        .item a:active{
+            color: hsl(229, 85%, 43%);
+        }
