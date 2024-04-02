@@ -3,7 +3,8 @@ const Product = require('../models/product')
 exports.getaddpage = (req, res,next)=>{
     
     console.log("in  middle");
-    res.render('add',{pagetitle:'add product ' , path:'/add'})
+    res.render('admin/add-product',{pagetitle:'add product ' , path:'/add-product'})
+    // res.render('admin/edit-product',{pagetitle:'add product ' , path:'/edit-product'})
     // res.sendFile(path.join(rootDir,'views','add.html'));
     // res.send('<form action="/addp" method="POST"><input type="text" name="title"><button type="submit">Add product</button></form>');
 }
@@ -16,18 +17,13 @@ exports.postaddpage =(req,res,next)=>{
     res.redirect('/');
 }
 
-exports.getshoppage=(req, res,next)=>{
+exports.getedit = (req, res,next)=>{
+    res.render('admin/edit-product',{pagetitle:'edit product ' , path:'/edit-product'})
     
-    console.log("in another middle")
-    const products = Product.fetchall((products)=>{
-        res.render('shop',{prods: products , pagetitle:'cart' , path: '/'})
+}
 
+exports.getproducts = (req, res,next)=>{
+    res.render('admin/products',{pagetitle:'products ' , path:'/products'})
     
-    });
-    // res.sendFile(path.join(rootDir,'views','shop.html'))
-    // res.render('shop',{prods: products , pagetitle:'cart' , path: '/'})
-    
-    // res.sendFile('/views/shop.html')
-    // res.send("<h1>Hi Redirected</h1>");
 }
 
