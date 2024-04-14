@@ -7,7 +7,7 @@ const adminc = require('../controllers/admincontroller')
 
 
 router.get('/add-product',adminc.getaddpage);
-router.post('/added',adminc.postaddpage);
+router.post('/shop',adminc.postaddpage);
 router.get('/edit-product',adminc.getedit);
 router.get('/products',adminc.getproducts);
 

@@ -4,7 +4,7 @@ const Product = require('../models/product')
 exports.getshoppage=(req, res,next)=>{
     
     console.log("in another middle")
-    const products = Product.fetchall((products)=>{
+    const products = Product.fetchAll((products)=>{
         res.render('shop/product-list',{prods: products , pagetitle:'cart' , path: '/'})
         res.render('shop/cart',{prods: products , pagetitle:'cart' , path: '/cart'})
 
@@ -21,13 +21,20 @@ exports.getshoppage=(req, res,next)=>{
 exports.getshoppage=(req, res,next)=>{
     
     console.log("in another middle")
-    const products = Product.fetchall((products)=>{
+    const products = Product.fetchAll((products)=>{
         res.render('shop/product-list',{prods: products , pagetitle:'cart' , path: '/'})
         res.render('shop/cart',{prods: products , pagetitle:'cart' , path: '/cart'})
 
     
     });
     
+}
+exports.getproductId=(req,res,nxt)=>{
+    const prodId = req.params.productId;
+    Product.findById(prodId,product=>{
+        console.log(product);
+    })
+    res.redirect('/')
 }
 
 exports.getCart=(req,res,nxt)=>{
@@ -39,7 +46,13 @@ exports.getcheckout=(req,res,nxt)=>{
 }
 
 exports.getproductdetail=(req,res,nxt)=>{
-    res.render('shop/product-detail',{pagetitle:'cart' , path:'/product-detail'})
+    // res.render('shop/product-detail',{pagetitle:'cart' , path:'/product-detail'})
+    const prodId = req.params.productId;
+    const products = Product.findById(prodId,products=>{
+        res.render('shop/product-detail',{product:products,pagetitle:'cart' , path:'/product-detail'})
+
+    
+    });
 }
 
 exports.getindex=(req,res,nxt)=>{
